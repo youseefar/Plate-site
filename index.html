@@ -3,382 +3,1072 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forex Plate | Premium Quality Plates</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <title>Melamine Master | Premium Melamine Plates</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #3a7a78;
+            --secondary: #ffb347;
+            --light: #f8f7f3;
+            --dark: #1a1a1a;
+            --gray: #8a8a8a;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-icons i {
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .header-icons i:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 15px;
+            z-index: 1001;
+        }
+
+        .phone-number {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .phone-number i {
+            color: var(--secondary);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1002;
+            transition: var(--transition);
+            padding: 80px 30px 30px;
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .sidebar-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-logo i {
+            color: var(--secondary);
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .sidebar-phone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-phone i {
+            color: var(--secondary);
+            font-size: 20px;
+        }
+
+        .sidebar-phone span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Categories */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 40px;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Featured Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 220px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background-color: #e09c3e;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            padding: 80px 0;
+            margin: 80px 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            margin: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e09c3e;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .call-now {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: var(--transition);
+        }
+
+        .call-now:hover {
+            background-color: #e09c3e;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .header-icons {
+                gap: 15px;
+            }
+            
+            .phone-number {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                width: 280px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Theme Toggle -->
-    <div class="theme-toggle">
-        <button id="themeToggle" aria-label="Toggle dark/light mode">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-        </button>
-    </div>
-
-    <!-- Navigation -->
-    <header class="header">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <span class="logo-icon">🍽️</span>
-                    <span class="logo-text">Forex Plate</span>
-                </a>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>Melamine Master</span>
+                </div>
                 
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#products">Shop</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#benefits">Why Melamine</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
                 
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#products" class="nav-link">Products</a></li>
-                    <li><a href="#why-us" class="nav-link">Why Us</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="#order" class="btn btn-nav">Order Now</a></li>
-                </ul>
-            </nav>
+                <div class="header-icons">
+                    <div class="phone-number">
+                        <i class="fas fa-phone"></i>
+                        <span>09075475562</span>
+                    </div>
+                    <i class="fas fa-search"></i>
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">3</span>
+                    </div>
+                    <i class="fas fa-user"></i>
+                    <div class="mobile-menu" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-close" id="sidebar-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="sidebar-logo">
+            <i class="fas fa-utensils"></i>
+            <span>Melamine Master</span>
+        </div>
+        
+        <ul class="sidebar-nav">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#products">Shop Plates</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#benefits">Why Melamine</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        
+        <div class="sidebar-phone">
+            <i class="fas fa-phone"></i>
+            <span>09075475562</span>
+        </div>
+        
+        <p>Call us now for orders or inquiries!</p>
+        <a href="tel:09075475562" class="call-now">Call Now</a>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title animate-on-scroll">Elevate Your Dining Experience</h1>
-                <p class="hero-subtitle animate-on-scroll">Premium quality plates crafted with precision for homes and restaurants across Nigeria.</p>
-                <div class="hero-cta animate-on-scroll">
-                    <a href="https://wa.me/2349150945529?text=Hi%20Forex%20Plate%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" class="btn btn-primary btn-hero">
-                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
-                    </a>
-                    <a href="#products" class="btn btn-secondary">View Collection</a>
-                </div>
-            </div>
-            <div class="hero-image animate-on-scroll">
-                <div class="plate-display">
-                    <div class="plate plate-1"></div>
-                    <div class="plate plate-2"></div>
-                    <div class="plate plate-3"></div>
-                </div>
-            </div>
+            <h1>Unbreakable Elegance for Every Table</h1>
+            <p>Discover premium melamine plates that combine durability with sophisticated design. Perfect for restaurants, events, and everyday use.</p>
+            <a href="#products" class="btn">Shop Collection</a>
+            <a href="tel:09075475562" class="btn btn-secondary">Call to Order: 09075475562</a>
         </div>
-        <div class="hero-background"></div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title animate-on-scroll">Our Premium Collection</h2>
-                <p class="section-subtitle animate-on-scroll">Handcrafted plates that blend functionality with exquisite design</p>
+    <!-- Categories -->
+    <section class="container">
+        <h2 class="section-title">Melamine Plate Collections</h2>
+        <div class="categories">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Restaurant Grade</h3>
+                <p>Commercial-quality plates designed for heavy daily use</p>
             </div>
             
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card animate-on-scroll">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Elegance Porcelain Dinner Set">
-                        <div class="product-badge">Best Seller</div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Elegance Porcelain Set</h3>
-                        <p class="product-description">Fine bone china with gold accent rim, perfect for formal dining occasions.</p>
-                        <div class="product-footer">
-                            <span class="product-price">₦25,000 <span class="price-unit">/ set</span></span>
-                            <button class="btn btn-product" data-product="Elegance Porcelain Set">Add to Cart</button>
-                        </div>
-                    </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-home"></i>
                 </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card animate-on-scroll">
-                    <div class="product-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMdEUVzaWoQgd5nndikJRnVH96_87jC6BSeymX3Ec5KQ&s=10" alt="Modern Ceramic Plates">
-                        <div class="product-badge">New Arrival</div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Modern Ceramic Collection</h3>
-                        <p class="product-description">Durable stoneware with minimalist design, ideal for everyday use.</p>
-                        <div class="product-footer">
-                            <span class="product-price">₦15,000 <span class="price-unit">/ set</span></span>
-                            <button class="btn btn-product" data-product="Modern Ceramic Collection">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card animate-on-scroll">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Melamine Outdoor Plates">
-                        <div class="product-badge">Durable</div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Melamine Outdoor Plates</h3>
-                        <p class="product-description">Shatter-resistant and lightweight, perfect for outdoor dining and events.</p>
-                        <div class="product-footer">
-                            <span class="product-price">₦12,500 <span class="price-unit">/ set</span></span>
-                            <button class="btn btn-product" data-product="Melamine Outdoor Plates">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card animate-on-scroll">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1556909114-3f0c8d4e75d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Luxury Marble Plates">
-                        <div class="product-badge">Premium</div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Luxury Marble Design</h3>
-                        <p class="product-description">Unique marble-pattern plates that add sophistication to any table setting.</p>
-                        <div class="product-footer">
-                            <span class="product-price">₦32,000 <span class="price-unit">/ set</span></span>
-                            <button class="btn btn-product" data-product="Luxury Marble Design">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section id="why-us" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title animate-on-scroll">Why Choose Forex Plate</h2>
-                <p class="section-subtitle animate-on-scroll">We're committed to delivering excellence in every plate we craft</p>
+                <h3>Home Dining</h3>
+                <p>Elegant designs perfect for family meals and gatherings</p>
             </div>
             
-            <div class="feature-grid">
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3 class="feature-title">Premium Quality</h3>
-                    <p class="feature-description">Our plates are made from the finest materials, ensuring durability and exceptional finish that lasts for years.</p>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-glass-cheers"></i>
                 </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Shatter-Resistant</h3>
-                    <p class="feature-description">Advanced manufacturing techniques make our plates resistant to breaks and chips, even with daily use.</p>
-                </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <h3 class="feature-title">Affordable Luxury</h3>
-                    <p class="feature-description">Get premium quality at competitive prices. We believe everyone deserves beautiful tableware.</p>
-                </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <h3 class="feature-title">Fast Delivery</h3>
-                    <p class="feature-description">We deliver across Nigeria within 3-5 business days. Free delivery on orders above ₦50,000.</p>
-                </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 class="feature-title">Variety of Designs</h3>
-                    <p class="feature-description">From traditional to contemporary, we offer designs to match every taste and occasion.</p>
-                </div>
-                
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="feature-title">Customer Support</h3>
-                    <p class="feature-description">Our team is available 7 days a week to answer questions and help with your order.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title animate-on-scroll">Plate Gallery</h2>
-                <p class="section-subtitle animate-on-scroll">See how our plates elevate dining experiences</p>
+                <h3>Event & Catering</h3>
+                <p>Stylish plates for weddings, parties and special events</p>
             </div>
             
-            <div class="gallery-grid">
-                <div class="gallery-item animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Elegant table setting">
-                    <div class="gallery-overlay">
-                        <h3>Formal Dining</h3>
-                        <p>Perfect for special occasions</p>
-                    </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-leaf"></i>
                 </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1556909114-ff6e4a1d71f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Casual dining setting">
-                    <div class="gallery-overlay">
-                        <h3>Everyday Use</h3>
-                        <p>Durable and stylish</p>
-                    </div>
+                <h3>Eco-Friendly</h3>
+                <p>Reusable melamine plates that reduce waste</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="container">
+        <h2 class="section-title" id="products">Featured Melamine Plates</h2>
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Melamine Dinner Plate">
                 </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Outdoor dining">
-                    <div class="gallery-overlay">
-                        <h3>Outdoor Events</h3>
-                        <p>Lightweight and durable</p>
+                <div class="product-info">
+                    <h3 class="product-title">Classic White Melamine Set</h3>
+                    <p class="product-description">Set of 12 durable white melamine plates, commercial grade.</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
                     </div>
+                    <div class="product-price">₦12,500</div>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1556909114-3f0c8d4e75d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Restaurant setting">
-                    <div class="gallery-overlay">
-                        <h3>Restaurant Grade</h3>
-                        <p>Commercial quality</p>
-                    </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Patterned Melamine Plate">
                 </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1556909112-02c0c4116a90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Plate close-up">
-                    <div class="gallery-overlay">
-                        <h3>Fine Details</h3>
-                        <p>Exquisite craftsmanship</p>
+                <div class="product-info">
+                    <h3 class="product-title">Floral Pattern Collection</h3>
+                    <p class="product-description">Beautiful floral designs, set of 8 plates with matching bowls.</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(4.0)</span>
                     </div>
+                    <div class="product-price">₦18,999</div>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                
-                <div class="gallery-item animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1556909114-02d4c3a5f0f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Colorful plates">
-                    <div class="gallery-overlay">
-                        <h3>Vibrant Colors</h3>
-                        <p>Brighten your table</p>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1386&q=80" alt="Square Melamine Plate">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Modern Square Plates</h3>
+                    <p class="product-description">Contemporary square design, set of 6 plates in assorted colors.</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
                     </div>
+                    <div class="product-price">₦15,750</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Melamine Plate Set">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Restaurant Bundle Pack</h3>
+                    <p class="product-description">Complete set of 24 plates + 12 bowls for commercial use.</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <div class="product-price">₦45,000</div>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Order Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info animate-on-scroll">
-                    <h2 class="section-title">Ready to Elevate Your Dining?</h2>
-                    <p class="contact-text">Contact us today to place your order or inquire about our products. We're here to help you choose the perfect plates for your needs.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <h3>WhatsApp</h3>
-                                <a href="https://wa.me/2349150945529" target="_blank">+234 915 094 5529</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h3>Call Us</h3>
-                                <a href="tel:+2349150945529">+234 915 094 5529</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>Location</h3>
-                                <p>Kano, Nigeria</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
+    <!-- Benefits Section -->
+    <section class="container benefits" id="benefits">
+        <h2 class="section-title">Why Choose Melamine Plates?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                
-                <div class="contact-action animate-on-scroll">
-                    <div class="cta-card">
-                        <h3>Order Now</h3>
-                        <p>Get your premium plates delivered to your doorstep</p>
-                        
-                        <a href="https://wa.me/2349150945529?text=Hi%20Forex%20Plate%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" class="btn btn-primary btn-pulse">
-                            <i class="fab fa-whatsapp"></i> WhatsApp Order
-                        </a>
-                        
-                        <p class="cta-note">We typically respond within 15 minutes during business hours (9am - 7pm WAT)</p>
-                    </div>
+                <h3>Unbreakable</h3>
+                <p>Highly durable and chip-resistant, perfect for daily use and outdoor events.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-weight"></i>
+                </div>
+                <h3>Lightweight</h3>
+                <p>Easy to handle and store, reducing breakage during transport and washing.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Design Versatility</h3>
+                <p>Available in countless colors and patterns to match any decor or theme.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h3>Stain Resistant</h3>
+                <p>Non-porous surface prevents staining from foods like turmeric or berries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Melamine Master - Your Plate Specialists</h2>
+                    <p>At Melamine Master, we've dedicated ourselves to providing the highest quality melamine plates for every occasion. Unlike traditional ceramics, our plates offer unbeatable durability without compromising on style.</p>
+                    <p>We specialize exclusively in melamine plates - no pots, pans, or other cookware. This focus allows us to source and create the best melamine products on the market, perfect for restaurants, catering businesses, and homes.</p>
+                    <p>All our plates are BPA-free, microwave-safe (for short periods), and dishwasher safe for easy cleaning. We work directly with manufacturers to ensure quality and competitive pricing.</p>
+                    <a href="tel:09075475562" class="btn" style="margin-top: 20px;">Call to Order: 09075475562</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Melamine Plate Collection">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <span class="logo-icon">🍽️</span>
-                        <span class="logo-text">Forex Plate</span>
-                    </a>
-                    <p class="footer-tagline">Elevating dining experiences across Nigeria with premium quality plates.</p>
+                <div class="footer-column">
+                    <h3>Melamine Master</h3>
+                    <p>Your premier destination for premium melamine plates. Specializing exclusively in plates - no pots or other cookware.</p>
+                    <div class="sidebar-phone" style="background-color: rgba(255,255,255,0.1); margin-top: 15px;">
+                        <i class="fas fa-phone"></i>
+                        <span>09075475562</span>
+                    </div>
+                    <div class="social-icons" style="margin-top: 20px; display: flex; gap: 15px;">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-whatsapp"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
                 </div>
                 
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#products">Products</a></li>
-                            <li><a href="#why-us">Why Us</a></li>
-                            <li><a href="#gallery">Gallery</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Support</h3>
-                        <ul>
-                            <li><a href="#contact">Contact Us</a></li>
-                            <li><a href="#">Shipping Policy</a></li>
-                            <li><a href="#">Return Policy</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#products">Shop Plates</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#benefits">Why Melamine</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:09075475562">Call Us: 09075475562</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Bulk Orders</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Wholesale Inquiry</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates on new collections and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p class="copyright">&copy; <span id="currentYear"></span> Forex Plate. All rights reserved.</p>
-                <p class="footer-note">Kano, Nigeria | +234 915 094 5529</p>
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> Melamine Master. All rights reserved. | Specializing in melamine plates only - no pots or other cookware.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Cart Notification -->
-    <div class="cart-notification" id="cartNotification">
-        <div class="notification-content">
-            <i class="fas fa-check-circle"></i>
-            <span>Added to cart!</span>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script>
+        // Sidebar functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebar-close');
+        const overlay = document.getElementById('overlay');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+        
+        sidebarClose.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Close sidebar when clicking on a link
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 3;
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                count++;
+                cartCount.textContent = count;
+                
+                // Add animation effect
+                this.textContent = 'Added!';
+                this.style.backgroundColor = '#3a7a78';
+                
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                    this.style.backgroundColor = '';
+                }, 1500);
+            });
+        });
+        
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our updates soon.`);
+            this.reset();
+        });
+        
+        // Update year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
